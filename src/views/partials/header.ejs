@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><%= title || 'Simple Store — V2' %></title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.v2.css">
+</head>
+<body class="bg-light">
+
+<!-- Top thin bar -->
+<div class="bg-dark text-white small">
+  <div class="container d-flex justify-content-between py-1">
+    <div>Free shipping over $50 • Fast delivery</div>
+    <div>Need help? <a href="/about" class="text-white text-decoration-underline">Contact us</a></div>
+  </div>
+</div>
+
+<!-- Main navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="/images/brand-logo.png" alt="logo" style="height:38px;margin-right:10px;">
+      <div class="fw-bold fs-5">Simple<span class="text-primary">Store</span></div>
+    </a>
+
+    <form id="searchForm" class="mx-auto w-50 d-none d-lg-flex">
+      <div class="input-group">
+        <input id="searchInput" name="q" type="search" class="form-control form-control-lg border-end-0" placeholder="Search products, brands and categories..." aria-label="Search">
+        <button class="btn btn-outline-secondary border-start-0" type="submit"><i class="bi bi-search"></i></button>
+      </div>
+    </form>
+
+    <div class="d-flex align-items-center">
+      <a class="me-3 text-muted d-none d-lg-inline" href="/orders"><i class="bi bi-bag-heart fs-5"></i><span class="ms-1 small">Orders</span></a>
+      <a class="me-3 text-muted" href="/users"><i class="bi bi-people fs-5"></i></a>
+      <a class="position-relative me-2" href="/orders">
+        <i class="bi bi-cart3 fs-4 text-dark"></i>
+        <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+      </a>
+      <button class="btn btn-outline-primary btn-sm d-lg-none" id="mobileSearchBtn"><i class="bi bi-search"></i></button>
+      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- category strip -->
+<div class="bg-white border-top border-bottom">
+  <div class="container">
+    <div class="d-flex gap-3 py-2 overflow-auto">
+      <% /* Static categories - adjust or generate dynamically */ %>
+      <a href="/products?cat=Electronics" class="chip">Electronics</a>
+      <a href="/products?cat=Accessories" class="chip">Accessories</a>
+      <a href="/products?cat=Clothing" class="chip">Clothing</a>
+      <a href="/products?cat=Home" class="chip">Home</a>
+      <a href="/products?cat=Fitness" class="chip">Fitness</a>
+      <a href="/products?cat=Footwear" class="chip">Footwear</a>
+      <a href="/products?cat=Bags" class="chip">Bags</a>
+      <a href="/products?cat=Stationery" class="chip">Stationery</a>
+    </div>
+  </div>
+</div>
+
+<main class="container my-4">

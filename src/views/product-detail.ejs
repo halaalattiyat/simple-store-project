@@ -1,0 +1,46 @@
+<%- include('partials/header', { title: product.name }) %>
+
+<div class="row product-details">
+  <div class="col-lg-6 mb-4">
+    <img src="<%= product.image %>" alt="<%= product.name %>" class="big-image">
+    <div class="d-flex gap-2 mt-3">
+      <% /* if you have variations or gallery images, place thumbnails here */ %>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="bg-white p-4 rounded shadow-sm">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <h2 class="fw-bold"><%= product.name %></h2>
+          <div class="text-muted small"><%= product.category %></div>
+        </div>
+        <div class="text-primary fs-4 fw-bold">$<%= product.price %></div>
+      </div>
+
+      <hr>
+
+      <p class="mb-3"><%= product.description || 'No description provided.' %></p>
+
+      <form method="post" action="/api/orders" class="row g-2 align-items-center">
+        <input type="hidden" name="productId" value="<%= product.id %>">
+        <div class="col-auto">
+          <label class="small">Qty</label>
+          <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:90px;">
+        </div>
+        <div class="col">
+          <label class="small d-block">&nbsp;</label>
+          <button class="btn btn-primary btn-lg">Add to Cart • $<%= product.price %></button>
+        </div>
+      </form>
+
+      <hr>
+
+      <div class="small text-muted">
+        <strong>SKU:</strong> <%= product.id %> &nbsp; • &nbsp; <strong>Delivery:</strong> 2-5 business days
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

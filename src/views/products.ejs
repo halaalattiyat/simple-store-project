@@ -1,0 +1,34 @@
+<%- include('partials/header', { title: 'Products' }) %>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="fw-bold">Products</h2>
+  <div>
+    <label class="me-2 small text-muted">Sort</label>
+    <select id="sortSelect" class="form-select form-select-sm d-inline-block w-auto">
+      <option value="featured">Featured</option>
+      <option value="price-asc">Price: Low &rarr; High</option>
+      <option value="price-desc">Price: High &rarr; Low</option>
+    </select>
+  </div>
+</div>
+
+<div class="product-grid">
+  <% products.forEach(p => { %>
+    <div class="product-card">
+      <img src="<%= p.image %>" alt="<%= p.name %>" class="product-image">
+      <div class="product-body">
+        <div class="product-cat"><%= p.category %></div>
+        <div class="product-name"><a href="/products/<%= p.id %>" class="text-decoration-none text-dark"><%= p.name %></a></div>
+        <div class="d-flex justify-content-between align-items-center mt-2">
+          <div class="product-price">$<%= p.price %></div>
+          <div>
+            <button data-quickview="<%= p.id %>" class="btn btn-sm btn-outline-secondary btn-ghost"><i class="bi bi-eye"></i></button>
+            <a href="/products/<%= p.id %>" class="btn btn-sm btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,31 @@
+<%- include('partials/header', { title: 'Orders' }) %>
+
+<h2 class="mb-3 fw-bold">Orders</h2>
+<div class="table-responsive">
+  <table class="table align-middle bg-white shadow-sm">
+    <thead class="table-light">
+      <tr>
+        <th>Order</th>
+        <th>Customer</th>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Total</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(o => { %>
+        <tr>
+          <td><strong><%= o.id %></strong></td>
+          <td><%= o.userName %></td>
+          <td><%= o.productName %></td>
+          <td><%= o.quantity %></td>
+          <td>$<%= o.total %></td>
+          <td class="text-muted small"><%= new Date(o.createdAt).toLocaleString() %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('partials/footer') %>
