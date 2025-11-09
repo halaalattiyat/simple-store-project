@@ -4,7 +4,7 @@
 1. `npm install`
 2. `npm start` (or `npm run dev` with nodemon)
 
-Server runs on http://localhost:3000
+Server runs on http://localhost:5000
 
 ## Routes
 - Public (HTML):
